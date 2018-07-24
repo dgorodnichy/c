@@ -32,4 +32,17 @@ group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'guard-rspec', require: false
+  gem 'overcommit', require: false
+  gem 'rubocop', require: false
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
