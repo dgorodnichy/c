@@ -4,6 +4,7 @@ class MainPageController < ApplicationController
   end
 
   def search
-
+    result = Search.new(params[:query]).call
+    render json: result
   end
 end

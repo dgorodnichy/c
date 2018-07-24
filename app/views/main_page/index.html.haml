@@ -1,2 +1,5 @@
-%form
-  %input{:name => "search", :placeholder => "Search..", :type => "text"}
+%div#wrapper{ 'data-controller' => 'hello' }
+  = form_tag('/', id: 'search', onsubmit: 'event.preventDefault()') do
+    = text_field_tag :query, nil, 'data-target' => 'hello.name'
+    = submit_tag 'Search', 'data-action' => 'click->hello#greet', data: { disable_with: false }
+  %span{ 'data-target' => 'hello.output' }
