@@ -1,5 +1,6 @@
-- result.each do |movie|
-  %ul
-    %li= movie[:year]
-    %li= movie[:name]
-    %li= image_tag(movie[:cover])
+.wrapper
+  - result.each do |movie|
+    .grid-item
+      %p= movie[:year]
+      %p= movie[:name]
+      = image_tag(movie[:cover])
