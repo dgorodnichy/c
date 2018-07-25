@@ -1,5 +1,6 @@
-class Search
+# frozen_string_literal: true
 
+class Search
   attr_accessor :query
 
   def initialize(query)
@@ -7,6 +8,14 @@ class Search
   end
 
   def call
-    return {a: 'b', c: 'd', e: query}
+    channels.map do |channel|
+      channel.new(query).search
+    end.flatten
+  end
+
+  private
+
+  def channels
+    [Zona]
   end
 end

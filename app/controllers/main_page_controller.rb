@@ -1,10 +1,10 @@
-class MainPageController < ApplicationController
-  def index
+# frozen_string_literal: true
 
-  end
+class MainPageController < ApplicationController
+  def index; end
 
   def search
     result = Search.new(params[:query]).call
-    render json: result
+    render partial: 'movies_grid', locals: { result: result }
   end
 end

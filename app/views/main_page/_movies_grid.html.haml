@@ -1,0 +1,5 @@
+- result.each do |movie|
+  %ul
+    %li= movie[:year]
+    %li= movie[:name]
+    %li= image_tag(movie[:cover])
