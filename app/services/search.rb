@@ -1,21 +1,14 @@
 # frozen_string_literal: true
 
-class Search
+class Search < Stream
   attr_accessor :query
 
   def initialize(query)
     @query = query
   end
 
-  def call
-    channels.map do |channel|
-      channel.new(query).search
-    end.flatten
+  def result
+    KpApi::FilmSearch.new(query).view
   end
 
-  private
-
-  def channels
-    [Zona]
-  end
 end

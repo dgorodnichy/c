@@ -1,0 +1,11 @@
+.grid
+  - result.each do |movie|
+    .grid-item
+      %span.title= "#{movie[:name]} (#{movie[:year]})"
+      %div.poster
+        = image_tag(movie[:cover]) if movie[:cover]
+      %p.genres
+        - movie[:genres].each do |genre|
+          %span.genre
+            = genre
+

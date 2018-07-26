@@ -101,6 +101,7 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
+    hashie (3.5.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.0.1)
@@ -111,6 +112,8 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    kp_api (0.10.2)
+      hashie (>= 2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -305,6 +308,7 @@ DEPENDENCIES
   guard-rspec
   haml
   jbuilder (~> 2.5)
+  kp_api
   listen (>= 3.0.5, < 3.2)
   overcommit
   pg (>= 0.18, < 2.0)
