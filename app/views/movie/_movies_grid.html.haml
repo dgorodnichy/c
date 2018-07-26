@@ -1,6 +1,6 @@
 .wrapper
   - result.each do |movie|
     .grid-item
-      %p= movie[:year]
       %p= movie[:name]
+      %p= movie[:year]
       = image_tag(movie[:cover])

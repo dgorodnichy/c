@@ -14,7 +14,7 @@ export default class extends Controller {
 
     context.spinnerTarget.style.display = 'block';
 
-    axios.get('search', {
+    axios.get('/', {
       params: { query: this.nameTarget.value }
     }).then(function (response) {
       context.outputTarget.innerHTML = response.data
