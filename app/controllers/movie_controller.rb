@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class MainPageController < ApplicationController
+class MovieController < ApplicationController
   def index; end
+
+  def show; end
 
   def search
     result = Search.new(params[:query]).call
