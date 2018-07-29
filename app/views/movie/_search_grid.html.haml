@@ -1,7 +1,7 @@
 .grid
   - result.each do |movie|
     .grid-item
-      %p.title= "#{movie[:name]} (#{movie[:year]})"
+      %span.title= "#{movie[:name]} (#{movie[:year]})"
       %div.poster
         = image_tag(movie[:cover]) if movie[:cover]
       %p.description= movie[:description]

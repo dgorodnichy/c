@@ -1,0 +1,9 @@
+%div#wrapper{ 'data-controller' => 'movie' }
+  = form_tag('/', id: 'search', onsubmit: 'event.preventDefault()') do
+    = text_field_tag :query, nil, 'data-target' => 'movie.name'
+    = submit_tag 'Search', 'data-action' => 'click->movie#greet', data: { disable_with: false }
+  %hr
+  .loading{ style: 'display: none;', 'data-target' => 'movie.spinner'}
+    Loading&#8230;
+  %span{ 'data-target' => 'movie.output' }
+    = render 'movie_details', result: @movie

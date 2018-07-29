@@ -1,7 +1,9 @@
 .grid
   - result.each do |movie|
     .grid-item
-      %span.title= "#{movie[:name]} (#{movie[:year]})"
+      %span.title
+        %a{href: "/movie/#{movie[:kp_id]}"}
+          "#{movie[:name]} (#{movie[:year]})"
       %div.poster
         = image_tag(movie[:cover]) if movie[:cover]
       %p.genres

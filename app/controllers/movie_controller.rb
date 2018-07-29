@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class MovieController < ApplicationController
+
+  before_action :set_movie_id, only: :show
+
   def index
     if params[:query]
       render partial: 'search_grid', locals: { result: search_results }
@@ -9,15 +12,21 @@ class MovieController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+
+  end
 
   private
 
+  def set_movie_id
+    @movie = Kinopoisk::SearchMovie.new(params[:id]).search
+  end
+
   def search_results
-    Search.new(params[:query]).to_json
+    Kinopoisk::SearchMovies.new(params[:query]).to_json
   end
 
   def popular
-    Popular.new.to_json
+    Kinopoisk::GetPopular.new.to_json
   end
 end
