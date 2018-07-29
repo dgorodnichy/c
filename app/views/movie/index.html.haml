@@ -1,9 +1,27 @@
-%div#wrapper{ 'data-controller' => 'movie' }
-  = form_tag('/', id: 'search', onsubmit: 'event.preventDefault()') do
-    = text_field_tag :query, nil, 'data-target' => 'movie.name'
-    = submit_tag 'Search', 'data-action' => 'click->movie#greet', data: { disable_with: false }
-  %hr
-  .loading{ style: 'display: none;', 'data-target' => 'movie.spinner'}
-    Loading&#8230;
-  %span{ 'data-target' => 'movie.output' }
-    = render 'popular_grid', result: result
+.preloader.hide{'data-target' => 'movie.spinner'}
+  .center-align
+    .preloader-wrapper.big.active
+      .spinner-layer.spinner-blue-only
+        .circle-clipper.left
+          .circle
+        .gap-patch
+          .circle
+        .circle-clipper.right
+          .circle
+
+.output{ 'data-target' => 'movie.output' }
+  %table.striped
+    %thead
+      %tr
+        %th
+        %th Название
+        %th Жанр
+    %tbody
+      - result.each do |movie|
+        %tr
+          %td
+            = image_tag(movie[:cover].gsub('360', '90')) if movie[:cover]
+          %td
+            %a{href: "/movie/#{movie[:kp_id]}"}
+              "#{movie[:name]} (#{movie[:year]})"
+          %td $0.87

@@ -9,5 +9,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application'
     %link{:href => "https://fonts.googleapis.com/css?family=Source+Sans", :rel => "stylesheet"}/
-  %body
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+  %body{ 'data-controller' => 'movie' }
+    %nav
+      .nav-wrapper
+        = form_tag('/', id: 'search', 'data-action' => 'submit->movie#greet', autocomplete: "off") do
+          .input-field
+            = text_field_tag :query, nil, 'data-target' => 'movie.name', type: 'search', id: 'search'
+            %label.label-icon{:for => "search"}
+              %i.material-icons search
+            %i.material-icons close
     = yield

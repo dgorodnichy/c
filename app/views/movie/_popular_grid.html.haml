@@ -1,13 +1,13 @@
-.grid
-  - result.each do |movie|
-    .grid-item
-      %span.title
-        %a{href: "/movie/#{movie[:kp_id]}"}
-          "#{movie[:name]} (#{movie[:year]})"
-      %div.poster
-        = image_tag(movie[:cover]) if movie[:cover]
-      %p.genres
-        - movie[:genres].each do |genre|
-          %span.genre
-            = genre
-
+%table{ cellspacing: 0, cellpadding: 0 }
+  %tbody
+    - result.each do |movie|
+      %tr
+        %td.poster
+          = image_tag(movie[:cover].gsub('360', '90')) if movie[:cover]
+        %td.title
+          %a{href: "/movie/#{movie[:kp_id]}"}
+            "#{movie[:name]} (#{movie[:year]})"
+        %td.genres
+          - movie[:genres].each do |genre|
+            %p.genre
+              = genre
